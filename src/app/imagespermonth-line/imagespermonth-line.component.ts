@@ -34,12 +34,10 @@ export class ImagespermonthLineComponent implements OnInit {
 
     for (const allrecord of sourceData) {
       const getmonth = new Date(allrecord.dateAdded).getMonth() + 1;
-      if (tempDataStore[getmonth]) {
-            tempDataStore[getmonth] += 1;
-            } else {
-              tempDataStore[getmonth] = 0;
-              tempDataStore[getmonth] += 1;
-              }
+      if (!tempDataStore[getmonth]) {
+        tempDataStore[getmonth] = 0;
+      }
+       tempDataStore[getmonth] += 1;
     }
 
     console.log(tempDataStore);
